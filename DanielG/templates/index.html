@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load cart %}
+{% load custom_filter %}
+<!-- body -->
+<style>
+	.container img {
+		width: 100%;
+		height: auto;
+		opacity: 1;
+		transition: .5s ease;
+		backface-visibility: hidden;
+	}
+</style>
+<div class="container-fluid">
+    <p style=" padding: 6px; padding-bottom: 8px;"> 10 items</p>
+    <div class="row">
+		{% for product in products %}
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-3" id={{product.id}}>
+            <div class="container">
+                <img class="img img-responsive" src="{{product.image.url}}" style="width:100%; height: auto;">
+				<div class="card-body">
+					<p class="card-title">{{product.name}}</p>
+					<p class="card-text"><b>{{product.price|currency}}</b></p>
+					<!-- {{product | is_in_cart:request.session.cart }} -->
+				</div>
+
+				<div class="card-footer p-0 no-gutters">
+
+					{% if product|is_in_cart:request.session.cart %}
+					<div class="row no-gutters">
+						<form action="/#{{product.id}}" class="col-2 " method="post">
+							{% csrf_token %}
+							<input hidden type="text" name='product' value='{{product.id}}'>
+							<input hidden type="text" name='remove' value='True'>
+							<input type="submit" value=" - " class="btn btn-block btn-success border-right">
+						</form>
+						<div class="text-center col btn btn-success">{{product|cart_quantity:request.session.cart}} in Cart</div>
+						<form action="/#{{product.id}}" class="col-2 " method="post">
+							{% csrf_token %}
+							<input hidden type="text" name='product' value='{{product.id}}'>
+							<input type="submit" value=" + " class="btn btn-block btn-success border-left">
+						</form>
+					</div>
+					{% else %}
+					<form action="/#{{product.id}}" method="POST" class="btn-block">
+						{% csrf_token %}
+						<input hidden type="text" name='product' value='{{product.id}}'>
+						<input type="submit" class="float-right btn btn-success form-control"
+							value="Add To Cart">
+					</form>
+					{% endif %}
+
+				</div>
+            </div>
+            
+        </div>
+		{% endfor %}
+	</div>    
+</div>
+
+
+
+{% endblock %}
