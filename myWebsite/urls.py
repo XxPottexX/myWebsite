@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('', include('DanielG.urls', namespace='DanielG')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
