@@ -10,6 +10,13 @@ from DanielG.models.orders import Order
 
 class CheckOut(View):
     def post(self, request):
+        """The post method is where the user input for the checkout is fetched and creates order object.
+
+            :param self: First parameter to the Instance method. The instance is called onto itself with the request parameter.
+            :param request: Second required parameter to send HTTP requests.
+
+            :returns: Redirects to updated cart page
+        """
         address = request.POST.get('address')
         phone = request.POST.get('phone')
         customer = request.session.get('customer')

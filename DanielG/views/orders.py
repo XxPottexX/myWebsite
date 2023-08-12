@@ -10,6 +10,13 @@ class OrderView(View):
 
 
     def get(self , request ):
+        """The get method is used to render the order page according to the user that is logged in
+
+            :param self: First parameter to the Instance method. The instance is called onto itself with the request parameter.
+            :param request: Second required parameter to send HTTP requests.
+
+            :returns: Renders orders.html
+        """
         customer = request.session.get('customer')
         orders = Order.get_orders_by_customer(customer)
         print(orders)

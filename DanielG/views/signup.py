@@ -5,10 +5,27 @@ from django.views import View
 
 
 class Signup (View):
+    """This is the signup class that will contain the methods for registering"""
+
     def get(self, request):
+        """The get method is used to render the signup html file
+
+            :param self: First parameter to the Instance method. The instance is called onto itself with the request parameter.
+            :param request: Second required parameter to send HTTP requests.
+        
+            :returns: Renders signup.html
+        """
         return render (request, 'signup.html')
 
     def post(self, request):
+        """The post method is where the registration is processed and validated.
+            In the html file POST is used to get the user input and validate it.
+
+            :param self: First parameter to the Instance method. The instance is called onto itself with the request parameter.
+            :param request: Second required parameter to send HTTP requests.
+
+            :returns: Redirects to home page if succesfully signed up, else if error reset signup page
+        """
         postData = request.POST
         first_name = postData.get ('firstname')
         last_name = postData.get ('lastname')
@@ -44,6 +61,15 @@ class Signup (View):
             return render (request, 'signup.html', data)
 
     def validateCustomer(self, customer):
+        """The function is used to validate the input of the user and check if the user doesn't already exist
+
+            :param self: First parameter to the Instance method. The instance is called onto itself with the request parameter.
+            :param request: Second required parameter to send HTTP requests.
+
+            :returns: error_message if validation catches an error
+
+            :rtype: str
+        """
         error_message = None
         if (not customer.first_name):
             error_message = "Please Enter your First Name !!"

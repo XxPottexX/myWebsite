@@ -17,9 +17,19 @@ class Order(models.Model):
     status = models.BooleanField (default=False)
 
     def placeOrder(self):
+        """Saves order of user
+
+            :param self: Parameter to the Instance method. The instance is called onto itself.
+        """
         self.save()
 
     @staticmethod
     def get_orders_by_customer(customer_id):
+        """Returns order of corresponding user
+
+           :param customer_id: id of user
+
+           returns: order corresponding with id
+        """
         return Order.objects.filter(customer=customer_id).order_by('-date')
 
