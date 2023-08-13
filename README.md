@@ -29,7 +29,7 @@ To use the application:
  - To access the admin site of the application open the site as said above, and add /admin/ after the link. "http://127.0.0.1:8000/admin/"
    - First you would have to create your own superuser "python manage.py createsuperuser". Fill in the required fields.
    - Login in with those details
-     ![Screenshot of Django admin site.]( "Admin site")
+     ![Screenshot of Django admin site.](https://github.com/XxPottexX/myWebsite/blob/master/Screenshot%20admin%20site.png "Admin site")
   - You can add and change the models here as you'd like. 
 # Credits
  Jeandre Joguin-Rouxelle
