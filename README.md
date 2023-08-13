@@ -25,3 +25,6 @@ To use the application:
    ![Screenshot of running the application in the command line.](https://github.com/XxPottexX/myWebsite/blob/master/Screenshot%20python%20runserver.png "Command line")
    
    ![Screenshot of the website when opened.](https://github.com/XxPottexX/myWebsite/blob/master/Screenshot%20site.png "Website")
+
+# Credits
+ Jeandre Joguin-Rouxelle
