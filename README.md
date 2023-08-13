@@ -3,10 +3,10 @@ This is an e-commerce website that sells Jeans utilizing Python's web framework 
 A shopping cart system is implemented together with a user registration, login and logout system.
 
 # Table of contents
--[Django e-commerce Website](#djangoe-commerce-website)
--[Installation](#installation)
--[Usage](#usage)
--[Credits](#credits)
+- [Django e-commerce Website](#django e-commerce website)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
 
 # Installation
 
