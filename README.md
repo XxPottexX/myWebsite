@@ -22,4 +22,5 @@ To use the application:
  - change the cmd path to the parent root directory.
  - Then type "py manage.py runserver" in the comand line.
  - The server link will appear in the comaamd line, hold control and click on the link and the website will open in your browser.
+   ![Screenshot of running the application in the command line.](https://github.com/XxPottexX/myWebsite/blob/master/Screenshot%20python%20runserver.png "Command line")
    
